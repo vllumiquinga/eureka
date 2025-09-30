@@ -1,7 +1,7 @@
 pipeline {
     agent any
    environment {
-        set PATH=C:\Program Files\Docker\Docker\resources\bin;%PATH%
+        set PATH=C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%
     }
     tools {
         maven 'Maven3'    // Nombre EXACTO configurado en Jenkins -> Global Tool Configuration
@@ -23,14 +23,14 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t servicio1 .'
+                sh 'docker build -t eureka .'
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh 'docker stop servicio1 || true && docker rm servicio1 || true'
-                sh 'docker run -d -p 8081:8081 --name servicio1 servicio1'
+                sh 'docker stop eureka || true && docker rm eureka || true'
+                sh 'docker run -d -p 8081:8081 --name eureka eureka'
             }
         }
     }
