@@ -18,20 +18,20 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t eureka .'
+                bat 'docker build -t eureka .'
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh 'docker stop eureka || true && docker rm eureka || true'
-                sh 'docker run -d -p 8081:8081 --name eureka eureka'
+                bat 'docker stop eureka || true && docker rm eureka || true'
+                bat 'docker run -d -p 8081:8081 --name eureka eureka'
             }
         }
     }
