@@ -24,16 +24,16 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t eureka .'
+                bat 'docker build -t euraka .'
             }
         }
 
         stage('Docker Run') {
             steps {
                 bat '''
-                docker stop eureka || exit 0
-                docker rm eureka || exit 0
-                docker run -d -p 8081:8081 --name eureka eureka
+                docker stop euraka || exit 0
+                docker rm euraka || exit 0
+                docker run -d -p 8081:8081 --name euraka euraka
                 '''
             }
         }
