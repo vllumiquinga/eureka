@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
      steps {
-                git branch: 'main', url: 'https://github.com/vllumiquinga/eureka.git', credentialsId: 'github-credentials'
+                git branch: 'master', url: 'https://github.com/vllumiquinga/eureka.git', credentialsId: 'github-credentials'
             }
         }
 
