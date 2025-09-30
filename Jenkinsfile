@@ -1,7 +1,8 @@
 pipeline {
     agent any
    environment {        
-        bat 'set PATH=C:\\Program Files\\Docker\\Docker\\resources\\bin;%PATH%'
+        DOCKER_PATH = 'C:\\Program Files\\Docker\\Docker\\resources\\bin'
+        PATH = "${DOCKER_PATH};${env.PATH}"
     }
     tools {
         maven 'Maven3'    // Nombre EXACTO configurado en Jenkins -> Global Tool Configuration
